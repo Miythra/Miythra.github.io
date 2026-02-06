@@ -20,10 +20,13 @@
         .project-card { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #3498db; }
         .project-title { font-weight: bold; font-size: 1.1rem; display: flex; justify-content: space-between; align-items: center; }
         .project-tech { font-size: 0.85rem; color: #7f8c8d; margin-top: 5px; }
-        .btn { display: inline-block; background: #3498db; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; margin-top: 10px; transition: background 0.3s; }
+        .btn { display: inline-block; background: #3498db; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; margin-top: 10px; transition: background 0.3s; margin-right: 5px; }
         .btn:hover { background: #2980b9; }
-        .btn-outline { background: transparent; border: 1px solid #3498db; color: #3498db; margin-left: 10px; }
+        .btn-outline { background: transparent; border: 1px solid #3498db; color: #3498db; }
         .btn-outline:hover { background: #3498db; color: white; }
+        
+        /* Pour gérer l'alignement des boutons sur mobile */
+        .button-group { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 8px; }
         
         .status-dot { height: 10px; width: 10px; background-color: #2ecc71; border-radius: 50%; display: inline-block; margin-right: 5px; }
 
@@ -55,10 +58,11 @@
             <div class="project-tech">Python • ETL Pipeline • XGBoost vs LSTM • Streamlit</div>
             <p>End-to-end forecasting system analyzing the North-South pollution divide. Automated ETL from sensors to PostgreSQL and interactive dashboard.</p>
             
-            <div style="margin-top: 15px;">
-                <a href="https://github.com/Miythra/vietnam-air-quality-forecasting" class="btn" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                <a href="https://vietnam-air-quality-forecasting-dashboard.streamlit.app/" class="btn btn-outline" target="_blank"><span class="status-dot"></span>Live Demo</a>
-                <a href="assets/documents/Air_Quality_Report.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Read Report</a>
+            <div class="button-group">
+                <a href="https://vietnam-air-quality-forecasting-dashboard.streamlit.app/" class="btn" target="_blank"><span class="status-dot"></span>Live Demo</a>
+                <a href="https://github.com/Miythra/vietnam-air-quality-forecasting" class="btn btn-outline" target="_blank"><i class="fab fa-github"></i> Code</a>
+                <a href="assets/documents/Air_Quality_Report.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Report</a>
+                <a href="assets/documents/Air_Quality_Slides.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-desktop"></i> Slides</a>
             </div>
         </div>
 
@@ -69,7 +73,9 @@
             </div>
             <div class="project-tech">Deep Learning • CNN • Computer Vision • Malware Analysis</div>
             <p>Detecting ransomware variants by converting binaries into entropy images and analyzing them with Convolutional Neural Networks.</p>
-            <a href="https://github.com/Miythra" class="btn" target="_blank">View Code</a>
+            <div class="button-group">
+                <a href="https://github.com/Miythra" class="btn" target="_blank">View Code</a>
+            </div>
         </div>
 
         <div class="project-card" style="border-left-color: #9b59b6;">
@@ -83,7 +89,7 @@
 
         <h2>📄 Documents & Resume</h2>
         <div class="download-section">
-            <p>Interested in my profile? Download my detailed resume or project reports.</p>
+            <p>Interested in my profile? Download my detailed resume.</p>
             <a href="assets/documents/CV_Alexandre_Guechtouli.pdf" class="btn"><i class="fas fa-download"></i> Download CV</a>
         </div>
 
