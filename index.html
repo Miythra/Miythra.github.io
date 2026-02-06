@@ -22,8 +22,10 @@
         .project-tech { font-size: 0.85rem; color: #7f8c8d; margin-top: 5px; }
         .btn { display: inline-block; background: #3498db; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; margin-top: 10px; transition: background 0.3s; }
         .btn:hover { background: #2980b9; }
-        .btn-outline { background: transparent; border: 1px solid #3498db; color: #3498db; }
+        .btn-outline { background: transparent; border: 1px solid #3498db; color: #3498db; margin-left: 10px; }
         .btn-outline:hover { background: #3498db; color: white; }
+        
+        .status-dot { height: 10px; width: 10px; background-color: #2ecc71; border-radius: 50%; display: inline-block; margin-right: 5px; }
 
         .download-section { text-align: center; margin-top: 50px; padding: 20px; background: #e8f4fd; border-radius: 8px; }
     </style>
@@ -52,9 +54,12 @@
             </div>
             <div class="project-tech">Python • ETL Pipeline • XGBoost vs LSTM • Streamlit</div>
             <p>End-to-end forecasting system analyzing the North-South pollution divide. Automated ETL from sensors to PostgreSQL and interactive dashboard.</p>
-            <a href="https://github.com/Miythra/vietnam-air-quality-forecasting" class="btn" target="_blank">View Code</a>
-            <a href="#" class="btn btn-outline" target="_blank">Live Demo (Coming Soon)</a>
-            <a href="assets/documents/Air_Quality_Report.pdf" class="btn btn-outline" target="_blank">Read Report</a>
+            
+            <div style="margin-top: 15px;">
+                <a href="https://github.com/Miythra/vietnam-air-quality-forecasting" class="btn" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                <a href="https://vietnam-air-quality-forecasting-dashboard.streamlit.app/" class="btn btn-outline" target="_blank"><span class="status-dot"></span>Live Demo</a>
+                <a href="assets/documents/Air_Quality_Report.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Read Report</a>
+            </div>
         </div>
 
         <div class="project-card" style="border-left-color: #e74c3c;">
