@@ -1,103 +1,954 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexandre Guechtouli | Data & Security Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f4f4f9; color: #333; line-height: 1.6; margin: 0; padding: 20px; display: flex; justify-content: center; }
-        .container { max-width: 800px; width: 100%; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        header { text-align: center; margin-bottom: 40px; }
-        h1 { margin: 0; color: #2c3e50; }
-        .subtitle { color: #7f8c8d; font-size: 1.2rem; margin-top: 5px; }
-        .social-links { margin-top: 20px; }
-        .social-links a { text-decoration: none; color: #333; font-size: 1.5rem; margin: 0 10px; transition: color 0.3s; }
-        .social-links a:hover { color: #3498db; }
-        
-        h2 { border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; margin-top: 40px; color: #2c3e50; }
-        
-        .project-card { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #3498db; }
-        .project-title { font-weight: bold; font-size: 1.1rem; display: flex; justify-content: space-between; align-items: center; }
-        .project-tech { font-size: 0.85rem; color: #7f8c8d; margin-top: 5px; }
-        .btn { display: inline-block; background: #3498db; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; margin-top: 10px; transition: background 0.3s; margin-right: 5px; }
-        .btn:hover { background: #2980b9; }
-        .btn-outline { background: transparent; border: 1px solid #3498db; color: #3498db; }
-        .btn-outline:hover { background: #3498db; color: white; }
-        
-        .button-group { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 8px; }
-        
-        .status-dot { height: 10px; width: 10px; background-color: #2ecc71; border-radius: 50%; display: inline-block; margin-right: 5px; }
+    <title>Alexandre Guechtouli | Cybersecurity, DevSecOps & AI Security</title>
+    <meta name="description" content="Portfolio of Alexandre Guechtouli — Cybersecurity Consultant, DevSecOps & AI Security Engineer at Télécom SudParis.">
+    
+    <!-- Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        .download-section { text-align: center; margin-top: 50px; padding: 20px; background: #e8f4fd; border-radius: 8px; }
+    <style>
+        :root {
+            --bg-primary: #07070b;
+            --bg-secondary: #0d0d14;
+            --bg-card: #11111a;
+            --bg-card-hover: #161622;
+            --border-subtle: #1f1f2e;
+            --border-purple: rgba(168, 85, 247, 0.45);
+            --purple-primary: #a855f7;
+            --purple-deep: #7e22ce;
+            --purple-soft: #d8b4fe;
+            --purple-glow: rgba(168, 85, 247, 0.16);
+            --emerald: #10b981;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --text-dim: #6b7280;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.65;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(126, 34, 206, 0.16) 0%, transparent 55%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 44px 44px, 44px 44px;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(7, 7, 11, 0.82);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-brand span {
+            color: var(--purple-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple-soft);
+        }
+
+        .nav-cv-btn {
+            padding: 6px 14px;
+            border: 1px solid var(--purple-primary);
+            border-radius: 6px;
+            color: var(--purple-soft) !important;
+            background: rgba(168, 85, 247, 0.08);
+            transition: all 0.2s ease !important;
+        }
+
+        .nav-cv-btn:hover {
+            background: var(--purple-primary);
+            color: #fff !important;
+            box-shadow: 0 0 16px var(--purple-glow);
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        header {
+            padding: 84px 0 64px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .terminal-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--purple-soft);
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 24px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--emerald);
+            box-shadow: 0 0 8px var(--emerald);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        h1 {
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, #ffffff 35%, #d8b4fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-role {
+            font-family: var(--font-mono);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--purple-primary);
+            margin-bottom: 20px;
+        }
+
+        .hero-bio {
+            max-width: 720px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 32px;
+        }
+
+        .hero-bio strong {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--purple-primary), var(--purple-deep));
+            color: #ffffff;
+            font-family: var(--font-mono);
+            font-size: 0.86rem;
+            font-weight: 500;
+            padding: 11px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.35);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 0.86rem;
+            padding: 11px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--purple-primary);
+            color: var(--purple-soft);
+            background: var(--bg-card-hover);
+        }
+
+        /* Sections */
+        section {
+            padding: 68px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-header {
+            margin-bottom: 36px;
+        }
+
+        .section-tag {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--purple-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            border-left: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .timeline-item {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 24px;
+            transition: border-color 0.25s ease;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--border-purple);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -34px;
+            top: 28px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--purple-primary);
+            border: 2px solid var(--bg-primary);
+            box-shadow: 0 0 10px var(--purple-primary);
+        }
+
+        .exp-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .exp-role {
+            font-size: 1.12rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .exp-date {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--purple-soft);
+            background: rgba(168, 85, 247, 0.1);
+            padding: 3px 10px;
+            border-radius: 6px;
+        }
+
+        .exp-company {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .exp-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.94rem;
+        }
+
+        .exp-list li {
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .exp-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--purple-primary);
+            font-family: var(--font-mono);
+        }
+
+        /* Projects Bento Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-purple);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 20px var(--purple-glow);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .project-category {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--purple-soft);
+            background: rgba(168, 85, 247, 0.12);
+            border: 1px solid rgba(168, 85, 247, 0.28);
+            padding: 3px 9px;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+
+        .project-title {
+            font-size: 1.18rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .project-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .project-desc b {
+            color: var(--purple-soft);
+            font-weight: 600;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            background: #181824;
+            border: 1px solid #262638;
+            padding: 3px 9px;
+            border-radius: 5px;
+        }
+
+        .card-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 6px 11px;
+            border-radius: 6px;
+            background: #181824;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.2s ease;
+        }
+
+        .card-link:hover {
+            border-color: var(--purple-primary);
+            color: var(--purple-soft);
+        }
+
+        .card-link.live {
+            border-color: rgba(16, 185, 129, 0.35);
+            color: #6ee7b7;
+        }
+
+        .card-link.live:hover {
+            background: rgba(16, 185, 129, 0.12);
+        }
+
+        /* Skills & Certifications Grid */
+        .arsenal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .arsenal-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .arsenal-box h3 {
+            font-family: var(--font-mono);
+            font-size: 0.92rem;
+            color: var(--purple-soft);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .certs-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 22px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .cert-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cert-badge {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: #181824;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+        }
+
+        .cert-badge.active {
+            border-color: rgba(16, 185, 129, 0.4);
+            color: #6ee7b7;
+        }
+
+        /* Resume CTA Box */
+        .cta-terminal {
+            background: linear-gradient(145deg, #11111c 0%, #171026 100%);
+            border: 1px solid var(--border-purple);
+            border-radius: 14px;
+            padding: 38px 32px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(126, 34, 206, 0.12);
+        }
+
+        .cta-terminal h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-terminal p {
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 0 auto 24px;
+            font-size: 0.96rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 36px 0;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .projects-grid,
+            .arsenal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links a:not(.nav-cv-btn) {
+                display: none;
+            }
+
+            header {
+                padding: 56px 0 48px;
+            }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Top Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-brand"><span>~/</span>alexandre-guechtouli</a>
+            <div class="nav-links">
+                <a href="#experience">// experience</a>
+                <a href="#projects">// projects</a>
+                <a href="#arsenal">// arsenal</a>
+                <!-- Update the href below if you rename your uploaded CV file -->
+                <a href="assets/documents/CV_Alexandre_Guechtouli_FR.pdf" target="_blank" class="nav-cv-btn">
+                    <i class="fas fa-file-arrow-down"></i> Resume
+                </a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
+
+        <!-- Hero Section -->
         <header>
+            <div class="terminal-pill">
+                <span class="pulse-dot"></span>
+                <span>TELECOM SUDPARIS • AIR SPECIALIZATION // PARIS, FR</span>
+            </div>
+
             <h1>Alexandre Guechtouli</h1>
-            <div class="subtitle">Data Scientist & Security Engineer</div>
-            <p>Bridging the gap between Machine Learning and Cybersecurity. <br>Based in Paris/Hanoi.</p>
+            <div class="hero-role">&gt; Cybersecurity Consultant • DevSecOps &amp; AI Security Engineer</div>
             
-            <div class="social-links">
-                <a href="https://github.com/Miythra" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/alexandre-guechtouli" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:alexandre.guechtouli@telecom-sudparis.eu"><i class="fas fa-envelope"></i></a>
+            <p class="hero-bio">
+                Final-year Engineering Student at <strong>Télécom SudParis (Institut Polytechnique de Paris)</strong> specializing in <em>Architecture &amp; Intelligence for Networks</em>. Currently working as a Junior Cybersecurity Consultant at <strong>LecPac Consulting</strong>, bridging offensive/defensive security, hardened cloud-native infrastructure, and privacy-preserving machine learning.
+            </p>
+
+            <div class="hero-actions">
+                <!-- Update the href below when you upload your updated CV PDF -->
+                <a href="assets/documents/CV_Alexandre_Guechtouli_FR.pdf" target="_blank" class="btn-primary">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+                <a href="https://github.com/Miythra" target="_blank" class="btn-secondary">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/alexandre-guechtouli/" target="_blank" class="btn-secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="mailto:alexandre.guechtouli@telecom-sudparis.eu" class="btn-secondary">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
             </div>
         </header>
 
-        <h2>🚀 Featured Projects</h2>
+        <!-- 01 // Experience -->
+        <section id="experience">
+            <div class="section-header">
+                <span class="section-tag">01 // Track Record</span>
+                <h2>Professional Experience</h2>
+            </div>
 
-        <div class="project-card">
-            <div class="project-title">
-                🇻🇳 Vietnam Air Quality System
-                <span style="font-size:0.8em; background:#e1f5fe; color:#0288d1; padding:2px 8px; border-radius:12px;">Data Science</span>
-            </div>
-            <div class="project-tech">Python • ETL Pipeline • XGBoost vs LSTM • Streamlit</div>
-            <p>End-to-end forecasting system analyzing the North-South pollution divide. Automated ETL from sensors to PostgreSQL and interactive dashboard.</p>
-            
-            <div class="button-group">
-                <a href="https://vietnam-air-quality-forecasting-dashboard.streamlit.app/" class="btn" target="_blank"><span class="status-dot"></span>Interactive Dashboard</a>
-                <a href="https://github.com/Miythra/vietnam-air-quality-forecasting" class="btn btn-outline" target="_blank"><i class="fab fa-github"></i> Code</a>
-                <a href="assets/documents/Air_Quality_Report.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Report</a>
-            </div>
-        </div>
+            <div class="timeline">
+                <!-- LecPac Consulting - Apprentice -->
+                <div class="timeline-item">
+                    <div class="exp-top">
+                        <div class="exp-role">Junior Cybersecurity Consultant (Apprenticeship)</div>
+                        <span class="exp-date">Sept 2026 – Present</span>
+                    </div>
+                    <div class="exp-company">LecPac Consulting • Évry-Courcouronnes, France</div>
+                    <ul class="exp-list">
+                        <li>Execute black-box &amp; grey-box web penetration tests alongside Purple Team exercises to identify, exploit, and remediate infrastructure vulnerabilities.</li>
+                        <li>Upgraded monthly client reporting into an autonomous scheduled <strong>GitLab CI</strong> runner pipeline featuring data validation, dynamic placeholders, and PII-anonymized LLM commentary.</li>
+                        <li>Architected a <strong>Trivy</strong> container vulnerability telemetry pipeline correlating CVEs across multi-tenant client images for rapid incident alerting.</li>
+                        <li>Administer and tune SIEM/SOAR detection rulesets (<strong>Falco, Loki, Grafana</strong>) and Kubernetes/Terraform security controls.</li>
+                    </ul>
+                </div>
 
-        <div class="project-card" style="border-left-color: #e74c3c;">
-            <div class="project-title">
-                🦠 AI-Based Ransomware Detection
-                <span style="font-size:0.8em; background:#ffebee; color:#c62828; padding:2px 8px; border-radius:12px;">Deep Learning</span>
-            </div>
-            <div class="project-tech">PyTorch • ResNet-18 • Hilbert Curves • PE Header Analysis</div>
-            <p>Achieved <b>99.92% Recall</b> on zero-day ransomware by converting binary headers into images. Outperformed academic baselines by implementing <b>Hilbert Space-Filling Curves</b> to preserve data locality.</p>
-            
-            <div class="button-group">
-                <a href="https://github.com/Miythra" class="btn btn-outline" target="_blank"><i class="fab fa-github"></i> Code</a>
-                <a href="assets/documents/Static_Ransomware_Detection_Report.pdf" class="btn btn-outline" target="_blank"><i class="fas fa-file-pdf"></i> Report</a>
-            </div>
-        </div>
+                <!-- LecPac Consulting - Intern -->
+                <div class="timeline-item">
+                    <div class="exp-top">
+                        <div class="exp-role">Penetration Testing &amp; DevSecOps Intern</div>
+                        <span class="exp-date">June – Aug 2026</span>
+                    </div>
+                    <div class="exp-company">LecPac Consulting • Évry-Courcouronnes, France</div>
+                    <ul class="exp-list">
+                        <li>Engineered an end-to-end automated reporting workflow with <strong>n8n</strong> and Google Cloud APIs extracting Grafana telemetry, cutting two days of monthly manual reporting down to a single automated run.</li>
+                        <li>Participated in Blue Team defensive operations during an external penetration test and refined Falco behavioral threat detection rules.</li>
+                        <li>Conducted web application penetration tests using <strong>Burp Suite</strong> and configured BunkerWeb WAF rulesets.</li>
+                    </ul>
+                </div>
 
-        <div class="project-card" style="border-left-color: #9b59b6;">
-            <div class="project-title">
-                🔐 Privacy-Preserving AI (Cassiopée)
-                <span style="font-size:0.8em; background:#f3e5f5; color:#7b1fa2; padding:2px 8px; border-radius:12px;">Cryptography</span>
+                <!-- BNP Paribas CIB -->
+                <div class="timeline-item">
+                    <div class="exp-top">
+                        <div class="exp-role">Full Stack Developer &amp; SecOps Intern</div>
+                        <span class="exp-date">June – Aug 2025</span>
+                    </div>
+                    <div class="exp-company">BNP Paribas CIB (IT Production &amp; Security) • Paris, France</div>
+                    <ul class="exp-list">
+                        <li>Built a centralized firewall rule management dashboard in <strong>Python &amp; Django</strong> orchestrating REST APIs (ServiceNow, Tufin, Playflows) for enterprise network infrastructure.</li>
+                        <li>Enforced granular <strong>Role-Based Access Control (RBAC)</strong> via Django decorators and collaborated in English within an Agile/Scrum team across France and Spain.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="project-tech">Federated Learning • Homomorphic Encryption • Zero Trust</div>
-            <p>Implementation of Secure Aggregation protocols allowing AI training on encrypted data without privacy leaks.</p>
-            
-            <div class="button-group">
-                <a href="https://github.com/Miythra/Selective-FHE-FL" class="btn btn-outline" target="_blank"><i class="fab fa-github"></i> Code</a>
-            </div>
-        </div>
+        </section>
 
-        <h2>📄 Documents & Resume</h2>
-        <div class="download-section">
-            <p>Interested in my profile? Download my detailed resume.</p>
-            <a href="assets/documents/CV_Alexandre_Guechtouli_FR.pdf" class="btn"><i class="fas fa-download"></i> Download CV</a>
-        </div>
+        <!-- 02 // Featured Projects -->
+        <section id="projects">
+            <div class="section-header">
+                <span class="section-tag">02 // Selected Builds &amp; Research</span>
+                <h2>Featured Engineering Projects</h2>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- Project 1: Selective FHE -->
+                <article class="project-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-category">AI Privacy &amp; Crypto</span>
+                        </div>
+                        <h3 class="project-title">Selective FHE for Federated Learning</h3>
+                        <p class="project-desc">
+                            Research framework combining <b>Selective Fully Homomorphic Encryption (TenSEAL)</b> and Differential Privacy in PyTorch. Designed layer-wise encryption heuristics to protect sensitive model weights while minimizing computational overhead.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">TenSEAL (FHE)</span>
+                            <span class="tech-tag">Federated Learning</span>
+                        </div>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/Miythra/Selective-FHE-FL" target="_blank" class="card-link">
+                            <i class="fab fa-github"></i> Repository
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 2: Zero-Day Ransomware Detection -->
+                <article class="project-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-category">Deep Learning &amp; Malware</span>
+                        </div>
+                        <h3 class="project-title">Static Zero-Day Ransomware Detection</h3>
+                        <p class="project-desc">
+                            Transformed PE binary headers into entropy images using <b>Hilbert Space-Filling Curves</b> to preserve spatial locality, achieving <b>99.92% recall</b> on zero-day ransomware samples with a ResNet-18 vision classifier.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">ResNet-18</span>
+                            <span class="tech-tag">Hilbert Curves</span>
+                            <span class="tech-tag">Malware Analysis</span>
+                        </div>
+                    </div>
+                    <div class="card-links">
+                        <a href="assets/documents/Static_Ransomware_Detection_Report.pdf" target="_blank" class="card-link">
+                            <i class="fas fa-file-pdf"></i> Report
+                        </a>
+                        <a href="assets/documents/Static_Ransomware_Detection_Slides.pdf" target="_blank" class="card-link">
+                            <i class="fas fa-desktop"></i> Slides
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 3: Hardened Kubernetes -->
+                <article class="project-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-category">DevSecOps &amp; Cloud</span>
+                        </div>
+                        <h3 class="project-title">Hardened Kubernetes Microservices</h3>
+                        <p class="project-desc">
+                            Architected a zero-trust Kubernetes deployment with custom Helm charts, isolating pod-to-pod traffic via <b>Calico &amp; Cilium CNI NetworkPolicies</b> aligned with <b>NSA/CISA hardening guidelines</b> to prevent lateral movement.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Cilium</span>
+                            <span class="tech-tag">Helm</span>
+                            <span class="tech-tag">NSA/CISA Hardening</span>
+                        </div>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/Miythra" target="_blank" class="card-link">
+                            <i class="fab fa-github"></i> GitHub Profile
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 4: Vietnam AQI -->
+                <article class="project-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-category">Data Engineering &amp; ML</span>
+                        </div>
+                        <h3 class="project-title">Vietnam Air Quality Forecasting</h3>
+                        <p class="project-desc">
+                            End-to-end environmental telemetry pipeline ingesting sensor data into PostgreSQL (NeonDB) and benchmarking <b>LSTM, XGBoost, and Random Forest</b> models via a live interactive dashboard.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python ETL</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">XGBoost / LSTM</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://vietnam-air-quality-forecasting-dashboard.streamlit.app/" target="_blank" class="card-link live">
+                            <span class="pulse-dot"></span> Live App
+                        </a>
+                        <a href="https://github.com/Miythra/vietnam-air-quality-forecasting" target="_blank" class="card-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="assets/documents/Air_Quality_Report.pdf" target="_blank" class="card-link">
+                            <i class="fas fa-file-pdf"></i> Report
+                        </a>
+                        <a href="assets/documents/Air_Quality_Slides.pdf" target="_blank" class="card-link">
+                            <i class="fas fa-desktop"></i> Slides
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 5: Smart Contract Security & DFIR -->
+                <article class="project-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-category">AppSec &amp; Forensics</span>
+                        </div>
+                        <h3 class="project-title">Smart Contract Audit &amp; Ransomware DFIR</h3>
+                        <p class="project-desc">
+                            Audited Ethereum Solidity contracts using <b>Slither</b> and manual review to uncover arithmetic precision flaws, alongside sandboxed incident response on Hidden-Tear ransomware mapped to <b>MITRE ATT&amp;CK</b>.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Solidity</span>
+                            <span class="tech-tag">Slither</span>
+                            <span class="tech-tag">Wireshark / PCAP</span>
+                            <span class="tech-tag">MITRE ATT&amp;CK</span>
+                        </div>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/Miythra" target="_blank" class="card-link">
+                            <i class="fab fa-github"></i> GitHub Profile
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 6: AI Red Teaming & Network Anomaly Detection -->
+                <article class="project-card">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-category">AI Security &amp; Networks</span>
+                        </div>
+                        <h3 class="project-title">LLM PII Anonymization &amp; Traffic Anomaly ML</h3>
+                        <p class="project-desc">
+                            Training and red-teaming open-source LLMs on H100/H200 clusters for automated text PII sanitization, paired with ML models detecting anomalous outbound packet flows in network traffic.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">AI Red Teaming</span>
+                            <span class="tech-tag">LLMs</span>
+                            <span class="tech-tag">Network Anomaly ML</span>
+                            <span class="tech-tag">Scikit-Learn</span>
+                        </div>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/Miythra" target="_blank" class="card-link">
+                            <i class="fab fa-github"></i> GitHub Profile
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 03 // Technical Arsenal & Certifications -->
+        <section id="arsenal">
+            <div class="section-header">
+                <span class="section-tag">03 // Capabilities</span>
+                <h2>Technical Arsenal &amp; Certifications</h2>
+            </div>
+
+            <div class="arsenal-grid">
+                <div class="arsenal-box">
+                    <h3><i class="fas fa-shield-halved"></i> Offensive &amp; Defensive Security</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Web Pentesting (Black/Grey-box)</span>
+                        <span class="tech-tag">Burp Suite</span>
+                        <span class="tech-tag">Purple Team</span>
+                        <span class="tech-tag">Falco SIEM</span>
+                        <span class="tech-tag">Trivy</span>
+                        <span class="tech-tag">BunkerWeb WAF</span>
+                        <span class="tech-tag">Wireshark</span>
+                        <span class="tech-tag">Slither</span>
+                    </div>
+                </div>
+
+                <div class="arsenal-box">
+                    <h3><i class="fas fa-server"></i> Cloud, Kubernetes &amp; DevSecOps</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Helm</span>
+                        <span class="tech-tag">Cilium &amp; Calico</span>
+                        <span class="tech-tag">GitLab CI/CD</span>
+                        <span class="tech-tag">Loki &amp; Grafana</span>
+                        <span class="tech-tag">Linux (Ubuntu)</span>
+                    </div>
+                </div>
+
+                <div class="arsenal-box">
+                    <h3><i class="fas fa-brain"></i> AI, Machine Learning &amp; Privacy</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">TensorFlow / Keras</span>
+                        <span class="tech-tag">Scikit-Learn</span>
+                        <span class="tech-tag">TenSEAL (FHE)</span>
+                        <span class="tech-tag">Differential Privacy</span>
+                        <span class="tech-tag">AI Red Teaming</span>
+                        <span class="tech-tag">NumPy &amp; Pandas</span>
+                    </div>
+                </div>
+
+                <div class="arsenal-box">
+                    <h3><i class="fas fa-terminal"></i> Languages &amp; Automation</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python (Django)</span>
+                        <span class="tech-tag">Bash</span>
+                        <span class="tech-tag">SQL (PostgreSQL)</span>
+                        <span class="tech-tag">Java (Spring Boot)</span>
+                        <span class="tech-tag">n8n Workflows</span>
+                        <span class="tech-tag">Git</span>
+                        <span class="tech-tag">Rust (Learning)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="certs-bar">
+                <div style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--purple-soft);">
+                    <i class="fas fa-certificate"></i> Certifications
+                </div>
+                <div class="cert-list">
+                    <span class="cert-badge active">✓ Cisco CCNA (Certified)</span>
+                    <span class="cert-badge">⟳ Certified Ethical Hacker (CEH)</span>
+                    <span class="cert-badge">⟳ Cranium AI Red Team</span>
+                    <span class="cert-badge">⟳ Cranium AI Security</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 // Resume Download -->
+        <section style="border-bottom: none;">
+            <div class="cta-terminal">
+                <span class="section-tag" style="margin-bottom: 10px;">04 // Curriculum Vitae</span>
+                <h3>Ready to Collaborate?</h3>
+                <p>
+                    Download my full curriculum vitae for a complete overview of my engineering coursework, security operations, and research projects.
+                </p>
+                <!-- Update the href below when you upload your updated CV PDF -->
+                <a href="assets/documents/CV_Alexandre_Guechtouli_FR.pdf" target="_blank" class="btn-primary">
+                    <i class="fas fa-file-pdf"></i> Download Full CV (PDF)
+                </a>
+            </div>
+        </section>
 
     </div>
+
+    <footer>
+        <div class="container">
+            <p>Designed &amp; engineered by Alexandre Guechtouli // Hosted on GitHub Pages</p>
+        </div>
+    </footer>
 
 </body>
 </html>
